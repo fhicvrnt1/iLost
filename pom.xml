@@ -68,6 +68,11 @@
 			<artifactId>spring-test</artifactId>
 			<version>4.0.0.M3</version>
 		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>iLost</finalName>
