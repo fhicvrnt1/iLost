@@ -11,7 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  * @Description 日志Filter
@@ -24,7 +24,7 @@ public class LogFilter implements Filter {
 	// FilterConfig 可用于访问Filter的配置信息
 	private FilterConfig filterConfig = null;
 
-	// static Logger logger = Logger.getLogger(LogFilter.class);
+	static Logger logger = Logger.getLogger(LogFilter.class);
 
 	/**
 	 * 实现销毁方法
@@ -45,26 +45,30 @@ public class LogFilter implements Filter {
 		// ---下面代码用于用户请求执行预处理---
 		// 获取ServletContext对象，用于记录日志
 		ServletContext context = this.filterConfig.getServletContext();
+
 		long before = System.currentTimeMillis();
-		// logger.info("-----log filter begin-----");
-		System.out.println("-------------------------------------");
-		System.out.println("log filter begin...");
+		logger.info("-----log filter begin-----");
+		if (logger.isDebugEnabled()) {
+			logger.debug(context.getServerInfo());
+			logger.debug(context.getServerInfo() + "|"
+					+ context.getMajorVersion() + "|"
+					+ context.getMinorVersion());
+			logger.debug(context.getContextPath());
+			logger.debug(context.getServletContextName());
+			logger.debug(context.getRealPath(context.getContextPath()));
+			logger.error("test error");
+		}
 		// 将请求转换成HttpServletRequest请求
 		HttpServletRequest hsrequset = (HttpServletRequest) request;
 		// 输出提示信息
-		// logger.info("request getted : " + hsrequset.getServletPath());
-		System.out.println("request getted:" + hsrequset.getServletPath());
+		logger.debug("request getted:" + hsrequset.getServletPath());
 		// Filter请求只是链式处理，请求依然放行到目的地址
 		chain.doFilter(request, response);
 		// --- 下面的代码用于对服务器响应执行后处理---
 		long after = System.currentTimeMillis();
-		// System.out.println("log filter end.");
-		// logger.info("request url : " + hsrequset.getRequestURL());
-		// logger.info("cost time : " + (after - before) + "ms");
-		// logger.info("-----log filter end-----");
-		System.out.println("request url:" + hsrequset.getRequestURL()
-				+ " cost time:" + (after - before) + "ms");
-		System.out.println("-------------------------------------");
+		logger.debug("request url:" + hsrequset.getRequestURL());
+		logger.debug("cost time:" + (after - before) + "ms");
+		logger.debug("-----log filter end-----");
 	}
 
 	/**
