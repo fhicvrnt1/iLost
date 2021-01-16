@@ -73,12 +73,6 @@
 			<artifactId>joda-time</artifactId>
 			<version>1.6.2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.maven</groupId>
-			<artifactId>tomcat7-maven-plugin</artifactId>
-			<version>2.2</version>
-			<type>maven-plugin</type>
-		</dependency>
 	</dependencies>
 	<build>
 		<finalName>iLost</finalName>
