@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<!-- controller name -->
-	<bean name="/welcome" class="common.controller.HelloWorldController">
+	<bean class="common.controller.HelloWorldController">
 		<!-- 强制只接受POST请求 -->
 		<!-- <property name="supportedMethods" value="POST"></property> -->
 	</bean>
@@ -32,4 +32,15 @@
 		class="org.springframework.web.servlet.mvc.ServletForwardingController">
 		<property name="servletName" value="forwarding"></property>
 	</bean>
+
+	<!--Spring3.1开始的注解HandlerMapping -->
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+
+	<!--Spring3.1开始的注解HandlerAdapter -->
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />
+
+
+
 </beans>
