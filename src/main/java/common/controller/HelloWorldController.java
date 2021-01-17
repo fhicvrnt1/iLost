@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.joda.time.DateTime;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.web.servlet.mvc.AbstractController;
 
 /**
  * @Description
@@ -17,18 +17,21 @@ import org.springframework.web.servlet.mvc.Controller;
  * @mail liukefan@gmail.com
  * @version v1.0.0
  */
-public class HelloWorldController implements Controller {
+public class HelloWorldController extends AbstractController {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest request,
+	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		// 1、收集参数
+		// 2、绑定参数到命令对象
+		// 3、调用业务对象
+		// 4、选择下一个页面
 		ModelAndView mv = new ModelAndView();
 		String mvMsgFlg = "msg";
 		String mvMsg = "hello world!";
 		String mvName = "HelloWorldPage";
 		DateTime date = new DateTime();
 		mvMsg += " " + date.toString("yyyy/MM/dd HH:mm:ss EE");
-		//System.out.println(mvMsgFlg + " " + mvMsg + " " + mvName);
 		mv.addObject(mvMsgFlg, mvMsg);
 		mv.setViewName(mvName);
 		return mv;

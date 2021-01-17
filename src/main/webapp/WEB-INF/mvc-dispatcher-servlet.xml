@@ -5,17 +5,31 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<!-- controller name -->
-	<bean name="/welcome" class="common.controller.HelloWorldController" />
-
+	<bean name="/welcome" class="common.controller.HelloWorldController">
+		<!-- 强制只接受POST请求 -->
+		<!-- <property name="supportedMethods" value="POST"></property> -->
+	</bean>
 	<!-- controller mapping view path -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 前缀 -->
 		<property name="prefix">
 			<value>/pages/welcome/</value>
 		</property>
+		<!-- 后缀 -->
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
 	</bean>
 
+	<bean name="/helloWithoutReturnModelAndView"
+		class="common.controller.HelloWorldWithoutReturnModelAndViewController" />
+
+	<bean name="/helloLastModified"
+		class="common.controller.HelloWorldLastModifiedCacheController" />
+
+	<bean name="/forwardToServlet"
+		class="org.springframework.web.servlet.mvc.ServletForwardingController">
+		<property name="servletName" value="forwarding"></property>
+	</bean>
 </beans>
