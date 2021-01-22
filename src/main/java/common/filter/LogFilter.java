@@ -50,25 +50,29 @@ public class LogFilter implements Filter {
 		logger.info("-----log filter begin-----");
 		if (logger.isDebugEnabled()) {
 			logger.debug(context.getServerInfo());
-			logger.debug(context.getServerInfo() + "|"
+			logger.debug(context.getServletContextName() + "|"
 					+ context.getMajorVersion() + "|"
 					+ context.getMinorVersion());
 			logger.debug(context.getContextPath());
-			logger.debug(context.getServletContextName());
 			logger.debug(context.getRealPath(context.getContextPath()));
-			logger.error("test error");
 		}
 		// 将请求转换成HttpServletRequest请求
 		HttpServletRequest hsrequset = (HttpServletRequest) request;
 		// 输出提示信息
-		logger.debug("request getted:" + hsrequset.getServletPath());
+		if (logger.isDebugEnabled()) {
+			logger.debug("request getted:" + hsrequset.getServletPath());
+			logger.debug(context.getRealPath(hsrequset.getServletPath()));
+		}
+
 		// Filter请求只是链式处理，请求依然放行到目的地址
 		chain.doFilter(request, response);
 		// --- 下面的代码用于对服务器响应执行后处理---
 		long after = System.currentTimeMillis();
-		logger.debug("request url:" + hsrequset.getRequestURL());
-		logger.debug("cost time:" + (after - before) + "ms");
-		logger.debug("-----log filter end-----");
+		if (logger.isDebugEnabled()) {
+			logger.debug("request url:" + hsrequset.getRequestURL());
+			logger.debug("cost time:" + (after - before) + "ms");
+			logger.debug("-----log filter end-----");
+		}
 	}
 
 	/**
