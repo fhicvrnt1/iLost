@@ -24,7 +24,7 @@ public class LogFilter implements Filter {
 	// FilterConfig 可用于访问Filter的配置信息
 	private FilterConfig filterConfig = null;
 
-	static Logger logger = Logger.getLogger(LogFilter.class);
+	private static final Logger logger = Logger.getLogger(LogFilter.class.getName());
 
 	/**
 	 * 实现销毁方法
