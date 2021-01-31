@@ -10,7 +10,7 @@ package me.second_life.ilost.pojo;
  * @mail liukefan@gmail.com
  * @version v1.0.0
  */
-public class User {
+public class User extends Common {
 
 	private String user_id;
 	private String user_name;
@@ -60,7 +60,5 @@ public class User {
 	public void setUser_Password(String user_password) {
 		this.user_password = user_password;
 	}
-
-	
 
 }

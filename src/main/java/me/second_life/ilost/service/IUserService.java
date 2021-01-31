@@ -13,14 +13,13 @@ import me.second_life.ilost.pojo.User;
  * @date 2013年12月29日 下午10:44:53
  * @mail
  * @version v1.0.0
+ * @param <T>
  */
-public interface IUserService {
+public interface IUserService extends IService<User> {
 
-	boolean saveUser(User user);
+	boolean addUser(User user);
 
-	void saveUserThrowException() throws Exception;
+	boolean getUser(String username, String password);
 
-	boolean findUser(String username, String password);
-
-	List<User> findUsers();
+	List<User> getUsers();
 }

@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import me.second_life.ilost.dao.IUserDao;
 import me.second_life.ilost.pojo.User;
+import me.second_life.ilost.repository.impl.UserRepositoryImpl;
 import me.second_life.ilost.service.IUserService;
 
 /**
@@ -21,22 +21,17 @@ import me.second_life.ilost.service.IUserService;
 @Service
 public class UserServiceImpl implements IUserService {
 
-	private IUserDao userDao = null;
+	private UserRepositoryImpl userRepository = null;
 
 	@Override
-	public boolean saveUser(User user) {
-		return userDao.save(user);
+	public boolean addUser(User user) {
+		return userRepository.add(user);
 	}
 
 	@Override
-	public void saveUserThrowException() throws Exception {
-
-	}
-
-	@Override
-	public List<User> findUsers() {
-		List<User> users = userDao.query("select * from user order by id",
-				new Object[] { 17 });
+	public List<User> getUsers() {
+		List<User> users = userRepository.query(
+				"select * from user order by id", new Object[] { 17 });
 		// for (User user : users) {
 		// System.out.println(user.getUser_Name() + "    "
 		// + user.getUser_Password());
@@ -45,9 +40,9 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public boolean findUser(String username, String password) {
+	public boolean getUser(String username, String password) {
 		boolean found = false;
-		List<User> users = userDao.query(
+		List<User> users = userRepository.query(
 				"select * from user order by id where user_name = '" + username
 						+ "' and password = '" + password + "'",
 				new Object[] { 17 });

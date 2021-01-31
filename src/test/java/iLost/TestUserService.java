@@ -18,8 +18,8 @@ public class TestUserService {
 
 	@Test
 	public void hasMatchUser() {
-		boolean b1 = userService.findUser("dev_user1", "password");
-		boolean b2 = userService.findUser("kevin", "111");
+		boolean b1 = userService.getUser("dev_user1", "password");
+		boolean b2 = userService.getUser("kevin", "111");
 		assertTrue(b1);
 		assertTrue(b2);
 	}
