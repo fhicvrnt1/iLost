@@ -46,13 +46,8 @@
   </servlet>
   <servlet-mapping>
  	<servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/.do</url-pattern>
+        <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
-<!--   <servlet> -->
-<!-- <servlet-name>forwarding</servlet-name> -->
-<!-- <servlet-class>cn.javass.chapter4.web.servlet.ForwardingServlet</servlet-class> -->
-<!-- </servlet> -->
 	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

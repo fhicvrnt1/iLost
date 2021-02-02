@@ -3,6 +3,8 @@
  */
 package me.second_life.ilost.pojo;
 
+import java.io.Serializable;
+
 import org.joda.time.DateTime;
 
 /**
@@ -12,8 +14,12 @@ import org.joda.time.DateTime;
  * @mail
  * @version v1.0.0
  */
-public class Common {
+public class Common implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6282309387973367970L;
 	private String addUser;
 	private String updateUser;
 	private DateTime addDate;

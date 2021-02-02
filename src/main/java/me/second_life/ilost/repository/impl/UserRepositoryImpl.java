@@ -30,29 +30,35 @@ public class UserRepositoryImpl extends JdbcDaoSupport implements
 	private JdbcTemplate jdbcTemplate;
 
 	public List<User> query(String sql, Object[] args) {
-		return jdbcTemplate.query(sql, args, new UserRowMapper());
+		return null;
+		// return jdbcTemplate.query(sql, args, new UserRowMapper());
 	}
 
 	@Override
 	public boolean add(User t) {
-		String sqlStr = "insert into user(user_name,user_password) values(?,?)";
-		Object[] args = { t.getUser_Name(), t.getUser_Password() };
-		return jdbcTemplate.update(sqlStr, args) > 0 ? true : false;
+		return false;
+		// String sqlStr =
+		// "insert into user(user_name,user_password) values(?,?)";
+		// Object[] args = { t.getUser_Name(), t.getUser_Password() };
+		// return jdbcTemplate.update(sqlStr, args) > 0 ? true : false;
 	}
 
 	@Override
 	public boolean update(String id, User t) {
-		String sqlStr = "update user set user_name = ?,user_password = ? where user_id = ?";
-		Object[] args = { t.getUser_Name(), t.getUser_Password(),
-				t.getUser_Id() };
-		return jdbcTemplate.update(sqlStr, args) > 0 ? true : false;
+		return false;
+		// String sqlStr =
+		// "update user set user_name = ?,user_password = ? where user_id = ?";
+		// Object[] args = { t.getUser_Name(), t.getUser_Password(),
+		// t.getUser_Id() };
+		// return jdbcTemplate.update(sqlStr, args) > 0 ? true : false;
 
 	}
 
 	@Override
 	public boolean remove(String id) {
-		String sqlStr = "delete user where user_id = '" + id + "'";
-		return jdbcTemplate.update(sqlStr) > 0 ? true : false;
+		return false;
+		// String sqlStr = "delete user where user_id = '" + id + "'";
+		// return jdbcTemplate.update(sqlStr) > 0 ? true : false;
 
 	}
 
@@ -74,8 +80,9 @@ public class UserRepositoryImpl extends JdbcDaoSupport implements
 
 	@Override
 	public long count() {
-		String sqlStr = "select count(*) from user";
-		return jdbcTemplate.queryForLong(sqlStr);
+		return 0;
+		// String sqlStr = "select count(*) from user";
+		// return jdbcTemplate.queryForLong(sqlStr);
 	}
 
 }

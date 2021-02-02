@@ -12,6 +12,10 @@ package me.second_life.ilost.pojo;
  */
 public class User extends Common {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2900686332819781030L;
 	private String user_id;
 	private String user_name;
 	private String user_password;
