@@ -85,14 +85,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- <bean id="baseRepository" class="me.second_life.ilost.repository.impl.BaseRepository"> -->
-	<!-- <property name="dataSource" ref="dataSource" /> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="userRepository" class="me.second_life.ilost.repository.impl.UserRepositoryImpl"> -->
-	<!-- <property name="jdbcTemplate" ref="jdbcTemplate" /> -->
-	<!-- </bean> -->
-
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		p:dataSource-ref="dataSource">
