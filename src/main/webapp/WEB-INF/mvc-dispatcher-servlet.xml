@@ -80,13 +80,9 @@
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
-		<property name="prefix">
-			<value>/pages/welcome/</value>
-		</property>
+		<property name="prefix" value="/WEB-INF/jsp/" />
 		<!-- 后缀 -->
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
+		<property name="suffix" value=".jsp" />
 	</bean>
 
 	<!-- <bean id="baseRepository" class="me.second_life.ilost.repository.impl.BaseRepository"> -->
