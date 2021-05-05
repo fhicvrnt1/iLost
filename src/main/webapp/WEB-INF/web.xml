@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="iLost" version="3.0">
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="iLost" version="2.5">
 	<display-name>iLost</display-name>
-	
-	<filter>
-		<filter-name>log</filter-name>
-		<filter-class>common.filter.LogFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>log</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
+<!-- 	日志过滤器 -->
+<!-- 	<filter> -->
+<!-- 		<filter-name>log</filter-name> -->
+<!-- 		<filter-class>common.filter.LogFilter</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>log</filter-name> -->
+<!-- 		<url-pattern>/*</url-pattern> -->
+<!-- 	</filter-mapping> -->
 	<!-- 项目根目录 -->
-	<context-param>
-    	<param-name>webAppRootKey</param-name>
-    	<param-value>webApp.root</param-value>
-  	</context-param>
+<!-- 	<context-param> -->
+<!--     	<param-name>webAppRootKey</param-name> -->
+<!--     	<param-value>webApp.root</param-value> -->
+<!--   	</context-param> -->
   	
 	<!-- log4j配置文件 -->
 	<context-param>
@@ -27,10 +26,10 @@
 	</context-param>
 	
 	<!-- 日志刷新时间，毫秒 -->
-<!-- 	<context-param>  -->
-<!-- 		<param-name>log4jRefreshInterval</param-name>  -->
-<!-- 		<param-value>60000</param-value>  -->
-<!-- 	</context-param>  -->
+	<context-param> 
+		<param-name>log4jRefreshInterval</param-name> 
+		<param-value>60000</param-value> 
+	</context-param> 
 
 	<!-- 配置spring的log监听 -->
 	<listener>

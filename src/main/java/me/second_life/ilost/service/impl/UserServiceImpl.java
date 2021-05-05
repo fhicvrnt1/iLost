@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import me.second_life.ilost.pojo.User;
-import me.second_life.ilost.repository.impl.UserRepositoryImpl;
+import me.second_life.ilost.repository.IUserRepository;
 import me.second_life.ilost.service.IUserService;
 
 /**
@@ -23,12 +23,11 @@ import me.second_life.ilost.service.IUserService;
 public class UserServiceImpl implements IUserService {
 
 	@Autowired
-	private UserRepositoryImpl userRepository;
+	private IUserRepository<User> userRepository;
 
 	@Override
 	public boolean addUser(User user) {
 		return false;
-//		return userRepository.add(user);
 	}
 
 	@Override
@@ -42,19 +41,21 @@ public class UserServiceImpl implements IUserService {
 //		// }
 //		return users;
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see me.second_life.ilost.service.IUserService#getUser(me.second_life.ilost.pojo.User)
+	 */
+	@Override
+	public User getUser(User user) {
+		
+		return userRepository.get(user);
+		
+	}
 
 	@Override
-	public boolean getUser(String username, String password) {
+	public boolean exsit(User user) {
+		// TODO Auto-generated method stub
 		return false;
-//		boolean found = false;
-//		List<User> users = userRepository.query(
-//				"select * from user order by id where user_name = '" + username
-//						+ "' and password = '" + password + "'",
-//				new Object[] { 17 });
-//		if (users.size() > 0) {
-//			found = true;
-//		}
-//		return found;
 	}
 
 }

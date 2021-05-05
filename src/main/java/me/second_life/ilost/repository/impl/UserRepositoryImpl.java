@@ -4,11 +4,9 @@
 package me.second_life.ilost.repository.impl;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import me.second_life.ilost.pojo.User;
@@ -16,14 +14,14 @@ import me.second_life.ilost.repository.IUserRepository;
 import me.second_life.ilost.repository.mapper.UserRowMapper;
 
 /**
- * @Description
+ * @Description 用户数据仓库实现类
  * @author 可凡
  * @date 2013年12月27日 下午3:56:16
  * @mail
  * @version v1.0.0
  */
 @Repository
-public class UserRepositoryImpl extends JdbcDaoSupport implements
+public class UserRepositoryImpl implements
 		IUserRepository<User> {
 
 	@Autowired
@@ -36,53 +34,41 @@ public class UserRepositoryImpl extends JdbcDaoSupport implements
 
 	@Override
 	public boolean add(User t) {
-		return false;
-		// String sqlStr =
-		// "insert into user(user_name,user_password) values(?,?)";
-		// Object[] args = { t.getUser_Name(), t.getUser_Password() };
-		// return jdbcTemplate.update(sqlStr, args) > 0 ? true : false;
-	}
-
-	@Override
-	public boolean update(String id, User t) {
-		return false;
-		// String sqlStr =
-		// "update user set user_name = ?,user_password = ? where user_id = ?";
-		// Object[] args = { t.getUser_Name(), t.getUser_Password(),
-		// t.getUser_Id() };
-		// return jdbcTemplate.update(sqlStr, args) > 0 ? true : false;
-
-	}
-
-	@Override
-	public boolean remove(String id) {
-		return false;
-		// String sqlStr = "delete user where user_id = '" + id + "'";
-		// return jdbcTemplate.update(sqlStr) > 0 ? true : false;
-
-	}
-
-	@Override
-	public User get(String id) {
-		return null;
-
-	}
-
-	@Override
-	public Map<String, User> get(Iterable<String> ids) {
-		return null;
-	}
-
-	@Override
-	public boolean exist(String id) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public long count() {
-		return 0;
-		// String sqlStr = "select count(*) from user";
-		// return jdbcTemplate.queryForLong(sqlStr);
+	public boolean update(User t) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean remove(User t) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public User get(User t) {
+		// TODO 查询单个用户
+		String username = t.getUser_Name() != null ? t.getUser_Name() : "";
+		String sql = "select * from user where user_name = ? order by user_id";
+		// query() 方法中，第一个参数为预编译sql，第二个参数为占位符，第三个参数为抽取对象，使用List接收
+		List<User> users = jdbcTemplate.query(sql, new Object[] { username },
+				new UserRowMapper());
+		if (users != null && users.size() > 0) {
+			return users.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean exist(User t) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

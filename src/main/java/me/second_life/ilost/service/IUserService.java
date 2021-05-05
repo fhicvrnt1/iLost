@@ -18,8 +18,12 @@ import me.second_life.ilost.pojo.User;
 public interface IUserService extends IService<User> {
 
 	boolean addUser(User user);
-
-	boolean getUser(String username, String password);
+	/*
+	 * 查询用户
+	 */
+	User getUser(User user);
 
 	List<User> getUsers();
+	
+	boolean exsit(User user);
 }

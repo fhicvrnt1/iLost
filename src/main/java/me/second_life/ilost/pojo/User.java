@@ -4,7 +4,7 @@
 package me.second_life.ilost.pojo;
 
 /**
- * @Description
+ * @Description 用户pojo
  * @author 可凡
  * @date 2013年12月20日 下午8:15:31
  * @mail liukefan@gmail.com
@@ -16,14 +16,14 @@ public class User extends Common {
 	 * 
 	 */
 	private static final long serialVersionUID = -2900686332819781030L;
-	private String user_id;
+	private int user_id;
 	private String user_name;
 	private String user_password;
 
 	/**
 	 * @return the id
 	 */
-	public String getUser_Id() {
+	public int getUser_Id() {
 		return user_id;
 	}
 
@@ -31,7 +31,7 @@ public class User extends Common {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setUser_Id(String user_id) {
+	public void setUser_Id(int user_id) {
 		this.user_id = user_id;
 	}
 
