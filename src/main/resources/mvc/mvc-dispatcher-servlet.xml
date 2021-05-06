@@ -66,22 +66,19 @@
 			<ref bean="dataSource" />
 		</property>
 	</bean>
-	
+
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
-	
+
 	<context:component-scan base-package="me.second_life.ilost.controller"></context:component-scan>
 	<context:component-scan base-package="me.second_life.ilost.repository.impl"></context:component-scan>
 	<context:component-scan base-package="me.second_life.ilost.service.impl"></context:component-scan>
-	
-	<!-- 控制器 -->
-<!-- 	<bean class="me.second_life.ilost.controller.HelloWorldController"> -->
-<!-- 	</bean> -->
 
 	<!-- 视图解析路径 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"  value="org.springframework.web.servlet.view.JstlView" />
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
 		<!-- 前缀 -->
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<!-- 后缀 -->

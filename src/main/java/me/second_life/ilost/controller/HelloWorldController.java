@@ -49,7 +49,7 @@ public class HelloWorldController {
 			ModelAndView mv = new ModelAndView();
 			String mvMsgFlg = "msg";
 			String mvMsg = "wrong username : " + username;
-			String mvName = "HelloWorldPage";
+			String mvName = "/HelloWorldPage";
 			DateTime date = new DateTime();
 			mvMsg += " " + date.toString("yyyy/MM/dd HH:mm:ss EE");
 			mv.addObject(mvMsgFlg, mvMsg);
@@ -59,7 +59,7 @@ public class HelloWorldController {
 			ModelAndView mv = new ModelAndView();
 			String mvMsgFlg = "msg";
 			String mvMsg = "hello " + username;
-			String mvName = "HelloWorldPage";
+			String mvName = "/HelloWorldPage";
 			DateTime date = new DateTime();
 			mvMsg += " " + date.toString("yyyy/MM/dd HH:mm:ss EE");
 			mv.addObject(mvMsgFlg, mvMsg);
