@@ -70,13 +70,11 @@
 	<mvc:default-servlet-handler />
 	<context:component-scan base-package="me.second_life.ilost.repository.impl"></context:component-scan>
 	<context:component-scan base-package="me.second_life.ilost.service.impl"></context:component-scan>
-	<!-- controller name -->
-	<bean class="common.controller.HelloWorldController">
-		<!-- 强制只接受POST请求 -->
-		<!-- <property name="supportedMethods" value="POST"></property> -->
+	<!-- 控制器 -->
+	<bean class="me.second_life.ilost.controller.HelloWorldController">
 	</bean>
 
-	<!-- controller mapping view path -->
+	<!-- 视图解析路径 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->

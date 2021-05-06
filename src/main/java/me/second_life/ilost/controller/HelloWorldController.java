@@ -1,4 +1,4 @@
-package common.controller;
+package me.second_life.ilost.controller;
 
 import me.second_life.ilost.pojo.User;
 import me.second_life.ilost.service.IUserService;
