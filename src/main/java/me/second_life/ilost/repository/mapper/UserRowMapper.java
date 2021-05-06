@@ -24,11 +24,11 @@ public class UserRowMapper implements IPojoRowMapper<User> {
 	public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 		User user = new User();
 		int user_id = rs.getInt("user_id");
-		user.setUser_Id(user_id > 0 ? user_id : 0);
+		user.setUserId(user_id > 0 ? user_id : 0);
 		String user_name = rs.getString("user_name");
-		user.setUser_Name(user_name != null ? user_name : "");
+		user.setUserName(user_name != null ? user_name : "");
 		String user_password = rs.getString("user_password");
-		user.setUser_Password(user_password != null ? user_password : "");
+		user.setUserPassword(user_password != null ? user_password : "");
 		String adduser = rs.getString("adduser");
 		user.setAddUser(adduser != null ? adduser : "");
 		Date adddtime = rs.getDate("addtime");

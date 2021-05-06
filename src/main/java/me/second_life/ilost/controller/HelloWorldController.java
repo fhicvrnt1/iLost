@@ -43,7 +43,7 @@ public class HelloWorldController {
 			@RequestParam(value = "username", required = true) String username) {
 
 		User user = new User();
-		user.setUser_Name(username);
+		user.setUserName(username);
 		 User newUser = userServiceImpl.getUser(user);
 		if (newUser == null) {
 			ModelAndView mv = new ModelAndView();

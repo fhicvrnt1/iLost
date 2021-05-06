@@ -16,53 +16,53 @@ public class User extends Common {
 	 * 
 	 */
 	private static final long serialVersionUID = -2900686332819781030L;
-	private int user_id;
-	private String user_name;
-	private String user_password;
+	private int userId;
+	private String userName;
+	private String userPassword;
 
 	/**
 	 * @return the id
 	 */
-	public int getUser_Id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
 	/**
 	 * @param id
 	 *            the id to set
 	 */
-	public void setUser_Id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	/**
-	 * @return the user_name
+	 * @return the userName
 	 */
-	public String getUser_Name() {
-		return user_name;
+	public String getUserName() {
+		return userName;
 	}
 
 	/**
-	 * @param user_name
-	 *            the user_name to set
+	 * @param userName
+	 *            the userName to set
 	 */
-	public void setUser_Name(String user_name) {
-		this.user_name = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**
-	 * @return the user_password
+	 * @return the userPassword
 	 */
-	public String getUser_Password() {
-		return user_password;
+	public String getUserPassword() {
+		return userPassword;
 	}
 
 	/**
-	 * @param user_password
-	 *            the user_password to set
+	 * @param userPassword
+	 *            the userPassword to set
 	 */
-	public void setUser_Password(String user_password) {
-		this.user_password = user_password;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 
 }
