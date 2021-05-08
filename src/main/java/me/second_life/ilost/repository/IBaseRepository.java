@@ -7,7 +7,7 @@ package me.second_life.ilost.repository;
  * @mail
  * @version v1.0.0
  */
-public interface IRepository<T> {
+public interface IBaseRepository<T> {
 
 	/*
 	 * 增加

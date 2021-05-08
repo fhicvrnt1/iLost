@@ -3,8 +3,13 @@
  */
 package me.second_life.ilost.repository.impl;
 
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
+
+import me.second_life.ilost.repository.IBaseRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,13 +20,15 @@ import org.springframework.stereotype.Repository;
  * @version v1.0.0
  */
 @Repository
-public class BaseRepository{
+public abstract class BaseRepository<T> extends JdbcDaoSupport implements
+		IBaseRepository<T> {
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
-	
-	public JdbcTemplate getJdbcTemplate(){
-		return this.jdbcTemplate;
+	private DataSource dataSource;
+
+	@PostConstruct
+	void init() {
+		setDataSource(dataSource);
 	}
 
 }

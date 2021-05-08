@@ -8,7 +8,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import me.second_life.ilost.pojo.User;
-import me.second_life.ilost.repository.IUserRepository;
 import me.second_life.ilost.repository.mapper.UserRowMapper;
 
 /**
@@ -19,11 +18,7 @@ import me.second_life.ilost.repository.mapper.UserRowMapper;
  * @version v1.0.0
  */
 @Repository
-public class UserRepositoryImpl extends BaseRepository implements
-		IUserRepository<User> {
-
-//	@Autowired
-//	private JdbcTemplate jdbcTemplate;
+public class UserRepositoryImpl extends BaseRepository<User> {
 
 	public List<User> query(String sql, Object[] args) {
 		return null;
@@ -54,8 +49,8 @@ public class UserRepositoryImpl extends BaseRepository implements
 		String username = t.getUserName() != null ? t.getUserName() : "";
 		String sql = "select * from user where user_name = ? order by user_id";
 		// query() 方法中，第一个参数为预编译sql，第二个参数为占位符，第三个参数为抽取对象，使用List接收
-		List<User> users = getJdbcTemplate().query(sql, new Object[] { username },
-				new UserRowMapper());
+		List<User> users = getJdbcTemplate().query(sql,
+				new Object[] { username }, new UserRowMapper());
 		if (users != null && users.size() > 0) {
 			return users.get(0);
 		} else {

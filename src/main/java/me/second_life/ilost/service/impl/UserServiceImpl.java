@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import me.second_life.ilost.pojo.User;
-import me.second_life.ilost.repository.IUserRepository;
+import me.second_life.ilost.repository.IBaseRepository;
 import me.second_life.ilost.service.IUserService;
 
 /**
@@ -23,7 +23,7 @@ import me.second_life.ilost.service.IUserService;
 public class UserServiceImpl implements IUserService {
 
 	@Autowired
-	private IUserRepository<User> userRepository;
+	private IBaseRepository<User> userRepository;
 
 	@Override
 	public boolean addUser(User user) {
