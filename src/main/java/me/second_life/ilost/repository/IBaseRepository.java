@@ -9,28 +9,39 @@ package me.second_life.ilost.repository;
  */
 public interface IBaseRepository<T> {
 
-	/*
-	 * 增加
+	
+	/**
+	 * add method
+	 * @param t the 
+	 * @return
 	 */
 	boolean add(final T t);
 
-	/*
-	 * 更新
+	/**
+	 * update method
+	 * @param t
+	 * @return
 	 */
 	boolean update(final T t);
 
-	/*
-	 * 删除
+	/**
+	 * delete method
+	 * @param t
+	 * @return
 	 */
 	boolean remove(final T t);
 
-	/*
-	 * 查询
+	/**
+	 * select method
+	 * @param t
+	 * @return
 	 */
 	T get(final T t);
 
-	/*
-	 * 检查
+	/**
+	 * exist method
+	 * @param t
+	 * @return
 	 */
 	boolean exist(final T t);
 

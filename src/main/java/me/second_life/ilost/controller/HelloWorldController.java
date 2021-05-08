@@ -44,8 +44,8 @@ public class HelloWorldController {
 
 		User user = new User();
 		user.setUserName(username);
-		 User newUser = userServiceImpl.getUser(user);
-		if (newUser == null) {
+		boolean exist = userServiceImpl.exsit(user);
+		if (!exist) {
 			ModelAndView mv = new ModelAndView();
 			String mvMsgFlg = "msg";
 			String mvMsg = "wrong username : " + username;

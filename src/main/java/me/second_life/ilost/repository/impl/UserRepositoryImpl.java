@@ -59,11 +59,19 @@ public class UserRepositoryImpl extends BaseRepository<User> {
 			return null;
 		}
 	}
-
+	
 	@Override
 	public boolean exist(User t) {
-		// TODO Auto-generated method stub
-		return false;
+		// TODO 验证用户是否存在
+		String username = t.getUserName() != null ? t.getUserName() : "";
+		String sql = "select * from user where user_name = ? order by user_id";
+		// query() 方法中，第一个参数为预编译sql，第二个参数为占位符，第三个参数为抽取对象，使用List接收
+		List<User> users = getJdbcTemplate().query(sql,
+				new Object[] { username }, new UserRowMapper());
+		if (users != null && users.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-
 }
