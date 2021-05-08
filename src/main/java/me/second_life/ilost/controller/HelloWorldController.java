@@ -12,19 +12,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @Description
+ * <p>Spring MVC 简单测试类
  * @author 可凡
  * @date 2013年12月11日 下午2:06:16
- * @mail liukefan@gmail.com
- * @version v1.0.0
+ * @version 1.0.0
  */
 @Controller
 @RequestMapping(value = "/hello/**")
 public class HelloWorldController {
 
+	/**
+	 * 自动注入用户业务类
+	 */
 	@Autowired
 	IUserService userServiceImpl;
 
+	/**
+	 * 访问控制器和返回视图
+	 * @return 视图
+	 */
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView helloWorld() {
 		ModelAndView mv = new ModelAndView();
@@ -38,6 +44,11 @@ public class HelloWorldController {
 		return mv;
 	}
 
+	/**
+	 * 检查用户是否存在
+	 * @param username 用户名
+	 * @return 返回是否存在的视图
+	 */
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public ModelAndView helloUser(
 			@RequestParam(value = "username", required = true) String username) {

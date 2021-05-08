@@ -4,11 +4,11 @@
 package me.second_life.ilost.pojo;
 
 /**
- * @Description 用户pojo
+ * <p>用户pojo
+ * 
  * @author 可凡
  * @date 2013年12月20日 下午8:15:31
- * @mail liukefan@gmail.com
- * @version v1.0.0
+ * @version 1.0.0
  */
 public class User extends Common {
 
@@ -16,8 +16,17 @@ public class User extends Common {
 	 * 
 	 */
 	private static final long serialVersionUID = -2900686332819781030L;
+	/**
+	 * 用户id
+	 */
 	private int userId;
+	/**
+	 * 用户名
+	 */
 	private String userName;
+	/**
+	 * 密码
+	 */
 	private String userPassword;
 
 	/**

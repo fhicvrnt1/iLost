@@ -1,47 +1,47 @@
 package me.second_life.ilost.repository;
 
 /**
- * @Description 数据仓库操作通用接口
+ * <p>数据仓库操作通用接口
+ * 
  * @author 可凡
  * @date 2014年01月03日 下午22:10:32
- * @mail
- * @version v1.0.0
+ * @version 1.0.0
+ * @param <T>
  */
 public interface IBaseRepository<T> {
 
-	
 	/**
-	 * add method
-	 * @param t the 
-	 * @return
+	 * 添加方法
+	 * @param t 要添加的对象
+	 * @return 执行结果
 	 */
 	boolean add(final T t);
 
 	/**
-	 * update method
-	 * @param t
-	 * @return
+	 * 更新方法
+	 * @param t 要更新的对象
+	 * @return 执行结果
 	 */
 	boolean update(final T t);
 
 	/**
-	 * delete method
-	 * @param t
-	 * @return
+	 * 删除方法
+	 * @param t 要删除的对象
+	 * @return 执行结果
 	 */
 	boolean remove(final T t);
 
 	/**
-	 * select method
-	 * @param t
-	 * @return
+	 * 查询方法
+	 * @param t 要查询的对象
+	 * @return 查询对象
 	 */
 	T get(final T t);
 
 	/**
-	 * exist method
-	 * @param t
-	 * @return
+	 * 检查是否存在方法
+	 * @param t 要检查的对象
+	 * @return 是否存在
 	 */
 	boolean exist(final T t);
 

@@ -8,21 +8,33 @@ import java.io.Serializable;
 import org.joda.time.DateTime;
 
 /**
- * @Description pojo通用属性
+ * <p>pojo通用属性
+ * 
  * @author 可凡
  * @date 2014年1月3日 下午10:20:38
- * @mail
- * @version v1.0.0
+ * @version 1.0.0
  */
-public class Common implements Serializable{
+public class Common implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6282309387973367970L;
+	/**
+	 * 添加人
+	 */
 	private String addUser;
+	/**
+	 * 更新人
+	 */
 	private String updateUser;
+	/**
+	 * 添加时间
+	 */
 	private DateTime addTime;
+	/**
+	 * 更新时间
+	 */
 	private DateTime updateTime;
 
 	/**

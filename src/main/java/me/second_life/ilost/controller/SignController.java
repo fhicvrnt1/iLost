@@ -12,20 +12,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 /**
- * @Description
+ * <p> 登录控制器
  * @author 可凡
  * @date 2014年4月8日 下午2:23:21
- * @mail
- * @version v1.0.0
+ * @version 1.0.0
  */
-
 @Controller
 public class SignController {
 
+	/**
+	 * 自动注入用户业务类
+	 */
 	@Autowired
 	IUserService userServiceImpl;
 
+	/**
+	 * 登录请求方法，必须GET类型
+	 * @return 登录视图
+	 */
 	@RequestMapping(value = "/signin", method = RequestMethod.GET)
 	public ModelAndView signin() {
 		ModelAndView mv = new ModelAndView();
@@ -34,6 +40,11 @@ public class SignController {
 		return mv;
 	}
 
+	/**
+	 * 登录验证方法，必须POST类型
+	 * @param user 登录用户
+	 * @return 是否登录成功的视图
+	 */
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public ModelAndView Login(User user) {
 
