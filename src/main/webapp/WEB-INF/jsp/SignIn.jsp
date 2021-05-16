@@ -15,10 +15,10 @@
 <title>Sign in iLost</title>
 
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="<%=basePath%>/css/bootstrap.css">
+<link rel="stylesheet" href="<%=basePath%>/resources/css/bootstrap.css">
 
 <!-- Custom styles for this template -->
-<link rel="stylesheet" href="<%=basePath%>/css/signin.css">
+<link rel="stylesheet" href="<%=basePath%>/resources/css/signin.css">
 </head>
 
 <body>
@@ -41,8 +41,8 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script type="text/javascript" src="<%=basePath%>/js/jquery-2.1.0.js"></script>
-	<script type="text/javascript" src="<%=basePath%>/js/bootstrap.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/resources/js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/resources/js/bootstrap.js"></script>
 
 </body>
 </html>

@@ -15,18 +15,6 @@
 	http://www.springframework.org/schema/mvc    
   	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-
-	<!--Spring3.1开始的注解HandlerMapping -->
-	<!-- <bean -->
-	<!-- class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" 
-		/> -->
-
-	<!--Spring3.1开始的注解HandlerAdapter -->
-	<!-- <bean -->
-	<!-- class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" 
-		/> -->
-
-
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<!-- 基本属性 url、user、password -->
@@ -68,7 +56,7 @@
 	</bean>
 
 	<mvc:annotation-driven />
-	<mvc:default-servlet-handler />
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
 
 	<context:component-scan base-package="me.second_life.ilost.controller"></context:component-scan>
 	<context:component-scan base-package="me.second_life.ilost.repository.impl"></context:component-scan>
