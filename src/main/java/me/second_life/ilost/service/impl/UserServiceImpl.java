@@ -54,8 +54,8 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public boolean exsit(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return userRepository.exist(user);
 	}
 
 }
