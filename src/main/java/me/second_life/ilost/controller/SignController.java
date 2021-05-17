@@ -56,13 +56,13 @@ public class SignController {
 				if (newUser != null) {
 					viewName = "index";
 				} else {
-					viewName = "SignIn";
+					viewName = "redirect:/signin";
 				}
 			} else {
-				viewName = "SignIn";
+				viewName = "redirect:/signin";
 			}
 		} else {
-			viewName = "SignIn";
+			viewName = "redirect:/signin";
 		}
 		return viewName;
 	}
