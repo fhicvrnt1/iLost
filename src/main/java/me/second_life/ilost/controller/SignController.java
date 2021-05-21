@@ -34,8 +34,8 @@ public class SignController {
 	 * @return 登录视图
 	 */
 	@RequestMapping(value = "/signin", method = RequestMethod.GET)
-	public String signin() {
-		String viewName = "SignIn";
+	public String signInGet() {
+		String viewName = "/signIn";
 		return viewName;
 	}
 
@@ -47,14 +47,14 @@ public class SignController {
 	 * @return 是否登录成功的视图
 	 */
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
-	public String Login(User user) {
+	public String signInPost(User user) {
 
-		String viewName = "index";
+		String viewName = "/index";
 		if (user != null) {
 			if (user.getUserName() != null && user.getUserPassword() != null) {
 				User newUser = userServiceImpl.getUser(user);
 				if (newUser != null) {
-					viewName = "index";
+					viewName = "/index";
 				} else {
 					viewName = "redirect:/signin";
 				}
@@ -65,5 +65,19 @@ public class SignController {
 			viewName = "redirect:/signin";
 		}
 		return viewName;
+	}
+	
+	@RequestMapping(value="/signup", method=RequestMethod.GET)
+	public String signUpGet(){
+		String viewName = "/signUp";
+		return viewName;
+		
+	}
+	
+	@RequestMapping(value="/signup", method=RequestMethod.POST)
+	public String signUpPost(){
+		String viewName = "/signUp";
+		return viewName;
+		
 	}
 }

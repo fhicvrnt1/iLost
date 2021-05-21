@@ -38,7 +38,7 @@ public class HelloWorldController {
 	public String helloWorld(Model model) {
 		String msgKey = "msg";
 		String msgValue = "hello world!";
-		String viewName = "HelloWorldPage";
+		String viewName = "/helloWorldPage";
 		DateTime date = new DateTime();
 		msgValue += " " + date.toString("yyyy/MM/dd HH:mm:ss EE");
 		model.addAttribute(msgKey, msgValue);
@@ -62,7 +62,7 @@ public class HelloWorldController {
 		boolean exist = userServiceImpl.exsit(user);
 		String msgKey = "msg";
 		String msgValue = username;
-		String viewName = "HelloWorldPage";
+		String viewName = "/helloWorldPage";
 		DateTime date = new DateTime();
 
 		if (!exist) {
