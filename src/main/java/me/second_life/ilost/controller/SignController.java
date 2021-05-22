@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * <p>
@@ -47,21 +48,24 @@ public class SignController {
 	 * @return 是否登录成功的视图
 	 */
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
-	public String signInPost(User user) {
-
+	public String signInPost(User user, RedirectAttributes redirectAttributes) {
 		String viewName = "/index";
+		String msg = "用户名或密码错误";
 		if (user != null) {
 			if (user.getUserName() != null && user.getUserPassword() != null) {
 				User newUser = userServiceImpl.getUser(user);
 				if (newUser != null) {
 					viewName = "/index";
 				} else {
+					redirectAttributes.addFlashAttribute("msg", msg);
 					viewName = "redirect:/signin";
 				}
 			} else {
+				redirectAttributes.addFlashAttribute("msg", msg);
 				viewName = "redirect:/signin";
 			}
 		} else {
+			redirectAttributes.addFlashAttribute("msg", msg);
 			viewName = "redirect:/signin";
 		}
 		return viewName;
