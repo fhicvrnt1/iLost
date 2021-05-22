@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="<%=basePath%>/resources/css/bootstrap.css">
 <link rel="stylesheet"
 	href="<%=basePath%>/resources/css/bootstrapValidator.css">
+<link rel="stylesheet"
+	href="<%=basePath%>/resources/css/font-awesome.css">
 
 </head>
 <body>
