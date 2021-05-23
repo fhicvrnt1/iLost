@@ -79,8 +79,26 @@ public class SignController {
 	}
 	
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
-	public String signUpPost(){
-		String viewName = "/signUp";
+	public String signUpPost(User user, RedirectAttributes redirectAttributes){
+		String viewName = "/index";
+		String msg = "注册失败";
+		if (user != null) {
+			if (user.getUserName() != null && user.getUserPassword() != null) {
+				User newUser = userServiceImpl.addUser(user);
+				if (newUser != null) {
+					viewName = "/index";
+				} else {
+					redirectAttributes.addFlashAttribute("msg", msg);
+					viewName = "redirect:/signup";
+				}
+			} else {
+				redirectAttributes.addFlashAttribute("msg", msg);
+				viewName = "redirect:/signup";
+			}
+		} else {
+			redirectAttributes.addFlashAttribute("msg", msg);
+			viewName = "redirect:/signup";
+		}
 		return viewName;
 		
 	}

@@ -15,21 +15,21 @@ public interface IBaseRepository<T> {
 	 * @param t 要添加的对象
 	 * @return 执行结果
 	 */
-	boolean add(final T t);
+	T add(final T t);
 
 	/**
 	 * 更新方法
 	 * @param t 要更新的对象
 	 * @return 执行结果
 	 */
-	boolean update(final T t);
+	T update(final T t);
 
 	/**
 	 * 删除方法
 	 * @param t 要删除的对象
 	 * @return 执行结果
 	 */
-	boolean remove(final T t);
+	T remove(final T t);
 
 	/**
 	 * 查询方法

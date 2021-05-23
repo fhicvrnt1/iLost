@@ -32,8 +32,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-lg-3 col-lg-offset-5 msg">
-					</div>
+				<div class="col-lg-3 col-lg-offset-5 msg"></div>
 			</div>
 			<div class="form-group">
 				<label class="col-lg-5 control-label">用户名</label>

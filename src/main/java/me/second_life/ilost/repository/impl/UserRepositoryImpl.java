@@ -42,9 +42,23 @@ public class UserRepositoryImpl extends BaseRepository<User> {
 	 * me.second_life.ilost.repository.IBaseRepository#add(java.lang.Object)
 	 */
 	@Override
-	public boolean add(User t) {
-		// TODO Auto-generated method stub
-		return false;
+	public User add(User t) {
+		if (t != null && t instanceof User) {
+			String username = t.getUserName() != null ? t.getUserName() : "";
+			String password = t.getUserPassword() != null ? t.getUserPassword()
+					: "";
+			String sql = "insert into user (user_name,user_password) values(?,?)";
+			int result = getJdbcTemplate().update(sql,
+					new Object[] { username, password });
+
+			if (result > 0) {
+				return this.get(t);
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
 
 	/*
@@ -54,9 +68,9 @@ public class UserRepositoryImpl extends BaseRepository<User> {
 	 * me.second_life.ilost.repository.IBaseRepository#update(java.lang.Object)
 	 */
 	@Override
-	public boolean update(User t) {
+	public User update(User t) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	/*
@@ -66,9 +80,9 @@ public class UserRepositoryImpl extends BaseRepository<User> {
 	 * me.second_life.ilost.repository.IBaseRepository#remove(java.lang.Object)
 	 */
 	@Override
-	public boolean remove(User t) {
+	public User remove(User t) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	/*

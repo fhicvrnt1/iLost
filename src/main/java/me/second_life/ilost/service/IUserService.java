@@ -23,7 +23,7 @@ public interface IUserService extends IService<User> {
 	 * @param user
 	 * @return 执行结果
 	 */
-	boolean addUser(User user);
+	User addUser(User user);
 
 	/**
 	 * 查询用户

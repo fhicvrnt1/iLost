@@ -33,6 +33,9 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<div class="col-lg-3 col-lg-offset-5 msg"></div>
+			</div>
+			<div class="form-group">
 				<label class="col-lg-5 control-label">用户名</label>
 				<div class="col-lg-3">
 					<input name="userName" type="text" autofocus placeholder="用户名"
@@ -71,11 +74,18 @@
 		src="<%=basePath%>/resources/js/bootstrapValidator.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
+
+			var msg = getMsg();
+			if (msg != null && msg != "") {
+				$(".msg").addClass("alert alert-warning");
+				$(".msg").text(msg);
+			}
+
 			$('.form-horizontal').bootstrapValidator({
 				feedbackIcons : {
-					valid : 'glyphicon glyphicon-ok',
-					invalid : 'glyphicon glyphicon-remove',
-					validating : 'glyphicon glyphicon-refresh'
+					valid : 'fa fa-check-circle',
+					invalid : 'fa fa-times-circle',
+					validating : 'fa fa-refresh'
 				},
 				fields : {
 					userName : {
@@ -119,6 +129,9 @@
 				}
 			});
 		});
+		function getMsg() {
+			return '${msg}';
+		}
 	</script>
 
 </body>
