@@ -55,6 +55,7 @@ public class SignController {
 			if (user.getUserName() != null && user.getUserPassword() != null) {
 				User newUser = userServiceImpl.getUser(user);
 				if (newUser != null) {
+					redirectAttributes.addFlashAttribute("user", newUser);
 					viewName = "/index";
 				} else {
 					redirectAttributes.addFlashAttribute("msg", msg);
@@ -86,6 +87,7 @@ public class SignController {
 			if (user.getUserName() != null && user.getUserPassword() != null) {
 				User newUser = userServiceImpl.addUser(user);
 				if (newUser != null) {
+					redirectAttributes.addFlashAttribute("user", newUser);
 					viewName = "/index";
 				} else {
 					redirectAttributes.addFlashAttribute("msg", msg);
